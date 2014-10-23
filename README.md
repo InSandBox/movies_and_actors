@@ -44,4 +44,4 @@ as a foreign key, so let's fix that.
 - in actors-movies migration file:
     - ActorId references "Actors" and referencesKey "id"
     - MovieId references "Movies" and referencesKey "id"
-- sqlist db:migrate
+- sqlize db:migrate
