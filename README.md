@@ -18,10 +18,10 @@ Here's a log of the steps I took:
 - sqlize model:create --name ActorsMovies --attributes ActorId:string,MovieId:string
 - sqlize db:migrate
 
-// Oops, I realized I made a mistake. ActorId and MovieId should have
-// been integers, not strings. Now I'm going to reset the database,
-// modify my ActorsMovies migration and model files, and then rerun
-// all the migrations.
+Oops, I realized I made a mistake. ActorId and MovieId should have
+been integers, not strings. Now I'm going to reset the database,
+modify my ActorsMovies migration and model files, and then rerun
+all the migrations.
 
 - sqlize db:migrate:undo // undo all the migrations
 - movies_and_actors_dev=# DROP TABLE "SequelizeMeta"; // overcome bug in sequelize
@@ -31,13 +31,13 @@ Here's a log of the steps I took:
   in actorsmovies.js model file.
 - sqlize db:migrate // redo all the migrations
 
-// Things seems to work now.  I am able to create Actors and Movies
-// and associate them in a many-to-many relationship.
-//
-// However, I notice that I am able to delete an Actor which will
-// leave ophaned entries in the ActorsMovies table.  Foreign key
-// contraints are supposed to help us here.  We never labeled anything
-// as a foreign key, so let's fix that.
+Things seems to work now.  I am able to create Actors and Movies
+and associate them in a many-to-many relationship.
+
+However, I notice that I am able to delete an Actor which will
+leave ophaned entries in the ActorsMovies table.  Foreign key
+contraints are supposed to help us here.  We never labeled anything
+as a foreign key, so let's fix that.
 
 - sqlize db:migrate:undo
 - movies_and_actors_dev=# DROP TABLE "SequelizeMeta";
