@@ -2,8 +2,8 @@
 
 module.exports = function(sequelize, DataTypes) {
   var ActorsMovies = sequelize.define("ActorsMovies", {
-    ActorId: DataTypes.STRING,
-    MovieId: DataTypes.STRING
+    ActorId: DataTypes.INTEGER,
+    MovieId: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {

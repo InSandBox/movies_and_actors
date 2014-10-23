@@ -17,3 +17,17 @@ Here's a log of the steps I took:
 - Possibly unhandled SequelizeDatabaseError: error: relation "ActorsMovies" does not exist
 - sqlize model:create --name ActorsMovies --attributes ActorId:string,MovieId:string
 - sqlize db:migrate
+
+// Oops, I realized I made a mistake. ActorId and MovieId should have
+// been integers, not strings. Now I'm going to reset the database,
+// modify my ActorsMovies migration and model files, and then rerun
+// all the migrations.
+
+- sqlize db:migrate:undo // undo all the migrations
+- movies_and_actors_dev=# DROP TABLE "SequelizeMeta"; // overcome bug in sequelize
+- change DataTypes.STRING to DataTypes.INTEGER for ActorId and MovieId
+  in actors-movies migration file.
+- change DataTypes.STRING to DataTypes.INTEGER for ActorId and MovieId
+  in actorsmovies.js model file.
+- sqlize db:migrate // redo all the migrations
+
