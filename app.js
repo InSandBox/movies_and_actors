@@ -72,6 +72,19 @@ var julianne = "Julianne Moore";
 // });
 
 
+// ===========================================
+// Uncomment this to try deleting John Goodman
+// ===========================================
+// db.Actor.find({name: john}).done(function (err, goodman) {
+//   goodman.destroy().done(function (err) {
+//     if (err) {
+//       console.log("error deleting " + john, err);
+//     } else {
+//       console.log("i deleted " + john);
+//     }
+//   });
+// });
+
 // ================================================
 // Uncomment these to remove all Actors and Movies.
 // ================================================
