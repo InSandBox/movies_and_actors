@@ -9,10 +9,14 @@ module.exports = {
         type: DataTypes.INTEGER
       },
       ActorId: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        references: "Actors",
+        referencesKey: "id"
       },
       MovieId: {
-        type: DataTypes.INTEGER
+        type: DataTypes.INTEGER,
+        references: "Movies",
+        referencesKey: "id"
       },
       createdAt: {
         allowNull: false,
